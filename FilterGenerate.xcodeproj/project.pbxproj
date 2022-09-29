@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E347A1C28D1E6D100E39ADC /* AllCustomCIFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E347A1B28D1E6D100E39ADC /* AllCustomCIFilter.swift */; };
+		9E490BE628D3519A00D996C3 /* ThreeDyeFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E490BE528D3519A00D996C3 /* ThreeDyeFilter.swift */; };
+		9E4A24DB28D35B6200ED3F28 /* LumaThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A24DA28D35B6200ED3F28 /* LumaThresholdFilter.swift */; };
+		9EC1C50628DAD11100D898D7 /* FilterKernel.ci.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9EC1C50528DAD11100D898D7 /* FilterKernel.ci.metal */; };
+		9EC1C50A28DAD3F500D898D7 /* WarpFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC1C50928DAD3F500D898D7 /* WarpFilter.swift */; };
+		9EC1C50C28DAD40700D898D7 /* ColorFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC1C50B28DAD40700D898D7 /* ColorFilter.swift */; };
+		9ECA6AFF28DC722F00BDA1B7 /* BangladeshFlagFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECA6AFE28DC722F00BDA1B7 /* BangladeshFlagFilter.swift */; };
+		9ECA6B0228DC785F00BDA1B7 /* UIImageExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECA6B0128DC785F00BDA1B7 /* UIImageExtention.swift */; };
+		9ECA6B0428DC851300BDA1B7 /* BlackTransparentFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECA6B0328DC851300BDA1B7 /* BlackTransparentFilter.swift */; };
 		9ECABCBE28D1DE210078A0D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECABCBD28D1DE210078A0D3 /* AppDelegate.swift */; };
 		9ECABCC028D1DE210078A0D3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECABCBF28D1DE210078A0D3 /* SceneDelegate.swift */; };
 		9ECABCC228D1DE210078A0D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECABCC128D1DE210078A0D3 /* ViewController.swift */; };
@@ -14,9 +23,49 @@
 		9ECABCC828D1DE210078A0D3 /* FilterGenerate.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9ECABCC628D1DE210078A0D3 /* FilterGenerate.xcdatamodeld */; };
 		9ECABCCA28D1DE230078A0D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ECABCC928D1DE230078A0D3 /* Assets.xcassets */; };
 		9ECABCCD28D1DE230078A0D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9ECABCCB28D1DE230078A0D3 /* LaunchScreen.storyboard */; };
+		9ECABCD728D1DF8B0078A0D3 /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECABCD528D1DF8B0078A0D3 /* FilterCollectionViewCell.swift */; };
+		9ECABCD828D1DF8B0078A0D3 /* FilterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ECABCD628D1DF8B0078A0D3 /* FilterCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXBuildRule section */
+		9EC1C50728DAD27000D898D7 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*.ci.metal";
+			fileType = pattern.proxy;
+			inputFiles = (
+			);
+			isEditable = 1;
+			outputFiles = (
+				"$(DERIVED_FILE_DIR)/${INPUT_FILE_BASE}.air",
+			);
+			script = "# Type a script or drag a script file from your workspace to insert its path.\nxcrun metal -c -fcikernel \"${INPUT_FILE_PATH}\" \\\n  -o \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+		};
+		9EC1C50828DAD2AC00D898D7 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*.ci.air";
+			fileType = pattern.proxy;
+			inputFiles = (
+			);
+			isEditable = 1;
+			outputFiles = (
+				"$(METAL_LIBRARY_OUTPUT_DIR)/$(INPUT_FILE_BASE).metallib",
+			);
+			script = "# Type a script or drag a script file from your workspace to insert its path.\nxcrun metallib -cikernel \"${INPUT_FILE_PATH}\" -o \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+		};
+/* End PBXBuildRule section */
+
 /* Begin PBXFileReference section */
+		9E347A1B28D1E6D100E39ADC /* AllCustomCIFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCustomCIFilter.swift; sourceTree = "<group>"; };
+		9E490BE528D3519A00D996C3 /* ThreeDyeFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeDyeFilter.swift; sourceTree = "<group>"; };
+		9E4A24DA28D35B6200ED3F28 /* LumaThresholdFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LumaThresholdFilter.swift; sourceTree = "<group>"; };
+		9EC1C50528DAD11100D898D7 /* FilterKernel.ci.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = FilterKernel.ci.metal; sourceTree = "<group>"; };
+		9EC1C50928DAD3F500D898D7 /* WarpFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WarpFilter.swift; sourceTree = "<group>"; };
+		9EC1C50B28DAD40700D898D7 /* ColorFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorFilter.swift; sourceTree = "<group>"; };
+		9ECA6AFE28DC722F00BDA1B7 /* BangladeshFlagFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BangladeshFlagFilter.swift; sourceTree = "<group>"; };
+		9ECA6B0128DC785F00BDA1B7 /* UIImageExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtention.swift; sourceTree = "<group>"; };
+		9ECA6B0328DC851300BDA1B7 /* BlackTransparentFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackTransparentFilter.swift; sourceTree = "<group>"; };
 		9ECABCBA28D1DE210078A0D3 /* FilterGenerate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FilterGenerate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ECABCBD28D1DE210078A0D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9ECABCBF28D1DE210078A0D3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +75,8 @@
 		9ECABCC928D1DE230078A0D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9ECABCCC28D1DE230078A0D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9ECABCCE28D1DE230078A0D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9ECABCD528D1DF8B0078A0D3 /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
+		9ECABCD628D1DF8B0078A0D3 /* FilterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +90,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E347A1D28D1E6DE00E39ADC /* model */ = {
+			isa = PBXGroup;
+			children = (
+				9E347A1B28D1E6D100E39ADC /* AllCustomCIFilter.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		9E347A1E28D1F8F100E39ADC /* filters */ = {
+			isa = PBXGroup;
+			children = (
+				9EC1C50428DAD0F200D898D7 /* metalFIle */,
+				9E490BE528D3519A00D996C3 /* ThreeDyeFilter.swift */,
+				9E4A24DA28D35B6200ED3F28 /* LumaThresholdFilter.swift */,
+				9EC1C50928DAD3F500D898D7 /* WarpFilter.swift */,
+				9EC1C50B28DAD40700D898D7 /* ColorFilter.swift */,
+				9ECA6AFE28DC722F00BDA1B7 /* BangladeshFlagFilter.swift */,
+				9ECA6B0328DC851300BDA1B7 /* BlackTransparentFilter.swift */,
+			);
+			path = filters;
+			sourceTree = "<group>";
+		};
+		9EC1C50428DAD0F200D898D7 /* metalFIle */ = {
+			isa = PBXGroup;
+			children = (
+				9EC1C50528DAD11100D898D7 /* FilterKernel.ci.metal */,
+			);
+			path = metalFIle;
+			sourceTree = "<group>";
+		};
+		9ECA6B0028DC783E00BDA1B7 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				9ECA6B0128DC785F00BDA1B7 /* UIImageExtention.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
 		9ECABCB128D1DE210078A0D3 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +147,10 @@
 		9ECABCBC28D1DE210078A0D3 /* FilterGenerate */ = {
 			isa = PBXGroup;
 			children = (
+				9ECA6B0028DC783E00BDA1B7 /* Extentions */,
+				9E347A1E28D1F8F100E39ADC /* filters */,
+				9E347A1D28D1E6DE00E39ADC /* model */,
+				9ECABCD428D1DF480078A0D3 /* views */,
 				9ECABCBD28D1DE210078A0D3 /* AppDelegate.swift */,
 				9ECABCBF28D1DE210078A0D3 /* SceneDelegate.swift */,
 				9ECABCC128D1DE210078A0D3 /* ViewController.swift */,
@@ -68,6 +161,15 @@
 				9ECABCC628D1DE210078A0D3 /* FilterGenerate.xcdatamodeld */,
 			);
 			path = FilterGenerate;
+			sourceTree = "<group>";
+		};
+		9ECABCD428D1DF480078A0D3 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				9ECABCD528D1DF8B0078A0D3 /* FilterCollectionViewCell.swift */,
+				9ECABCD628D1DF8B0078A0D3 /* FilterCollectionViewCell.xib */,
+			);
+			path = views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -82,6 +184,8 @@
 				9ECABCB828D1DE210078A0D3 /* Resources */,
 			);
 			buildRules = (
+				9EC1C50828DAD2AC00D898D7 /* PBXBuildRule */,
+				9EC1C50728DAD27000D898D7 /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -130,6 +234,7 @@
 			files = (
 				9ECABCCD28D1DE230078A0D3 /* LaunchScreen.storyboard in Resources */,
 				9ECABCCA28D1DE230078A0D3 /* Assets.xcassets in Resources */,
+				9ECABCD828D1DF8B0078A0D3 /* FilterCollectionViewCell.xib in Resources */,
 				9ECABCC528D1DE210078A0D3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -141,10 +246,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9ECA6B0428DC851300BDA1B7 /* BlackTransparentFilter.swift in Sources */,
+				9ECABCD728D1DF8B0078A0D3 /* FilterCollectionViewCell.swift in Sources */,
+				9EC1C50A28DAD3F500D898D7 /* WarpFilter.swift in Sources */,
+				9ECA6AFF28DC722F00BDA1B7 /* BangladeshFlagFilter.swift in Sources */,
+				9E347A1C28D1E6D100E39ADC /* AllCustomCIFilter.swift in Sources */,
+				9E4A24DB28D35B6200ED3F28 /* LumaThresholdFilter.swift in Sources */,
+				9ECA6B0228DC785F00BDA1B7 /* UIImageExtention.swift in Sources */,
+				9E490BE628D3519A00D996C3 /* ThreeDyeFilter.swift in Sources */,
+				9EC1C50628DAD11100D898D7 /* FilterKernel.ci.metal in Sources */,
 				9ECABCC828D1DE210078A0D3 /* FilterGenerate.xcdatamodeld in Sources */,
 				9ECABCC228D1DE210078A0D3 /* ViewController.swift in Sources */,
 				9ECABCBE28D1DE210078A0D3 /* AppDelegate.swift in Sources */,
 				9ECABCC028D1DE210078A0D3 /* SceneDelegate.swift in Sources */,
+				9EC1C50C28DAD40700D898D7 /* ColorFilter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +419,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.arif.newTest.FilterGenerate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -332,6 +448,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.arif.newTest.FilterGenerate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
